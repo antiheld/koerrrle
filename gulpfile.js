@@ -2,19 +2,15 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var prefix = require('gulp-autoprefixer');
+var nunjucksRender = require('gulp-nunjucks-render');
+var scsslint = require('gulp-scss-lint');
 
 var paths = {
     sass: ['src/scss/**/*.scss','!src/scss/**/_*.scss'],
+    nunjucks: ['src/templates/**/*.+(html|nunjucks)','!src/templates/**/_*.+(html|nunjucks)'],
     environment: 'public'
 };
 
-
-gulp.task('default', function () {
-    sass('src/app.scss', {sourcemap: true, style: 'compact'})
-        .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'));
-});
 
 
 // Complile general sass Files
@@ -27,9 +23,33 @@ gulp.task('sass', function () {
       .pipe(gulp.dest(paths.environment+'/css/'));
 });
 
+
+
+
+ 
+gulp.task('lint', function() {
+  return gulp.src('src/scss/*.scss')
+    .pipe(scsslint({
+      'config': 'config/sass-lint.yml'
+    }));
+});
+
+
+gulp.task('nunjucks', function() {
+  nunjucksRender.nunjucks.configure(['src/templates']);
+
+  // Gets .html and .nunjucks files in pages
+  return gulp.src(paths.nunjucks)
+  // Renders template with nunjucks
+  .pipe(nunjucksRender())
+  // output files in app folder
+  .pipe(gulp.dest(paths.environment));
+});
+
+
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch(paths.sass, ['sass']);
+    gulp.watch(paths.sass, ['sass', 'nunjucks'], {watch: false});
 });
 
 

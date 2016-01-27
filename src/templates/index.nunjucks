@@ -1,0 +1,4 @@
+{% include "partials/_header.nunjucks" %}
+<h1>This is the index page</h1>
+haha
+{% include "partials/_footer.nunjucks" %}
