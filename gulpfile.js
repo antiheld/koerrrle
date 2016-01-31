@@ -6,7 +6,8 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var scsslint = require('gulp-scss-lint');
 
 var paths = {
-    sass: ['src/scss/**/*.scss','!src/scss/**/_*.scss'],
+    //sass: ['src/scss/**/*.scss','!src/scss/**/_*.scss'],
+    sass: ['src/scss/**/*.scss'],
     nunjucks: ['src/templates/**/*.+(html|nunjucks)','!src/templates/**/_*.+(html|nunjucks)'],
     environment: 'public'
 };
@@ -17,7 +18,7 @@ var paths = {
 gulp.task('sass', function () {
     return gulp.src(paths.sass)
       .pipe(sourcemaps.init())
-      .pipe(prefix())
+      //.pipe(prefix())
       .pipe(sass.sync().on('error', sass.logError))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest(paths.environment+'/css/'));
@@ -54,4 +55,4 @@ gulp.task('watch', function() {
 
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'nunjucks']);

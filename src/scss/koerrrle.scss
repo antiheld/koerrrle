@@ -1,3 +1,28 @@
-body{
-  background: #ff0000;
-}
+/* Settings
+----------------------------------------- 
+Global Variables & Configuration Settings */
+
+@import 'settings/_settings.base';
+
+/* Tools
+-----------------------------------------
+Global Mixins & Functions */
+
+/* Generic
+-----------------------------------------
+Normalize, resets etc  */
+
+/*  Base
+-----------------------------------------
+Unclassed HTML elements (type selectors) */
+
+@import 'base/_base.page';
+
+
+/* Components
+-----------------------------------------
+Designed Components */
+
+/* Overwrites
+-----------------------------------------
+Helpers and Overwrites */
