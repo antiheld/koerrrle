@@ -19,7 +19,7 @@ gulp.task('sass', function () {
     return gulp.src(paths.sass)
       .pipe(sourcemaps.init())
       //.pipe(prefix())
-      .pipe(sass.sync().on('error', sass.logError))
+      .pipe(sass({errLogToConsole: true}))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest(paths.environment+'/css/'));
 });

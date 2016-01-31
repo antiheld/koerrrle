@@ -1,7 +1,7 @@
 html{
 	font-family: $base-font-family;
-	font-size: $base-font-size; 
-	line-height: $base-line-height;
+	font-size: ($base-font-size / 16px) * 1em; 
+	line-height: $base-line-height / $base-font-size;
 	font-color: $base-font-color;
 	background-color: $base-background-color;
 }

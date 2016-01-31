@@ -9,6 +9,7 @@
   <!-- Site Properties -->
   <title>Körle</title>
   <link rel="stylesheet" type="text/css" href="/css/koerrrle.css">
+  <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700,300' rel='stylesheet' type='text/css'>
 
   <script src="assets/library/jquery.min.js"></script>
 

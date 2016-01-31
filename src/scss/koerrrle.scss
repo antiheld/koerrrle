@@ -1,7 +1,10 @@
+
+
 /* Settings
 ----------------------------------------- 
 Global Variables & Configuration Settings */
 
+@import 'settings/_settings.theme';
 @import 'settings/_settings.base';
 
 /* Tools
@@ -22,6 +25,13 @@ Unclassed HTML elements (type selectors) */
 /* Components
 -----------------------------------------
 Designed Components */
+
+
+/* Theme
+-----------------------------------------
+Helpers and Overwrites */
+
+@import 'theme/_theme.test';
 
 /* Overwrites
 -----------------------------------------
